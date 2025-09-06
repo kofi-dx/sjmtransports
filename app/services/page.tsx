@@ -23,7 +23,7 @@ const services = [
     id: "hospital",
     title: "Hospital Transfers",
     description: "Comfortable and safe transfers between medical facilities and homes. Our trained staff ensures smooth transitions with minimal stress for patients.",
-    image: "/ama.jpg",
+    image: "/two.jpg",
     features: ["Non-emergency medical transport", "Wheelchair accessible", "Stretcher options", "Professional medical assistants"]
   },
   {

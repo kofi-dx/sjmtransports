@@ -10,7 +10,7 @@ const services = [
   {
     title: "Senior Transportation",
     description: "Specialized services for seniors with trained drivers and accessible vehicles.",
-    image: "https://images.unsplash.com/photo-1476234251651-f353703a034d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80"
+    image: "/one.jpg"
   },
   {
     title: "Hospital Transfers",
@@ -20,7 +20,7 @@ const services = [
   {
     title: "24/7 Availability",
     description: "Round-the-clock service for your urgent transportation needs.",
-    image: "/hero-bg.jpg"
+    image: "/three.jpg"
   }
 ]
 

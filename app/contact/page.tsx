@@ -154,7 +154,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-2">Phone</h3>
-                    <p className="text-gray-600 dark:text-gray-400">(555) 123-4567</p>
+                    <p className="text-gray-600 dark:text-gray-400">+1 (240) 877-6048</p>
                     <p className="text-teal-600 dark:text-teal-400 font-medium">Available 24/7</p>
                   </div>
                 </div>
@@ -181,8 +181,8 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-2">Address</h3>
-                    <p className="text-gray-600 dark:text-gray-400">123 Transport Avenue</p>
-                    <p className="text-gray-600 dark:text-gray-400">Baltimore, MD 21201</p>
+                    <p className="text-gray-600 dark:text-gray-400">19351 Circle Gate</p>
+                    <p className="text-gray-600 dark:text-gray-400">Dr. Germantown MD</p>
                   </div>
                 </div>
                 
@@ -203,7 +203,7 @@ export default function Contact() {
                 <div className="pt-4">
                   <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-4">Connect With Us</h3>
                   <div className="flex space-x-4">
-                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="bg-teal-100 dark:bg-teal-900 text-teal-600 dark:text-teal-400 p-3 rounded-full hover:bg-teal-200 dark:hover:bg-teal-800 transition-colors">
+                    <a href="https://www.facebook.com/profile.php?id=100064803139182" target="_blank" rel="noopener noreferrer" className="bg-teal-100 dark:bg-teal-900 text-teal-600 dark:text-teal-400 p-3 rounded-full hover:bg-teal-200 dark:hover:bg-teal-800 transition-colors">
                       <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                       </svg>

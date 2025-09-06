@@ -8,7 +8,7 @@ export default function Hero() {
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-teal-900 opacity-60 dark:opacity-70"></div>
         <Image
-          src="/ama.jpg"
+          src="/four.jpg"
           alt="Comfortable transportation for seniors"
           fill
           className="object-cover"
