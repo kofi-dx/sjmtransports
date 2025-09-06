@@ -4,6 +4,10 @@
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import { useState } from 'react'
+import emailjs from '@emailjs/browser'
+
+// Initialize EmailJS with your public key (get this from your EmailJS account)
+emailjs.init("tojMcIS2xxCyaJ8zB") // Replace with your actual public key
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -13,6 +17,8 @@ export default function Contact() {
     service: '',
     message: ''
   })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target
@@ -22,18 +28,52 @@ export default function Contact() {
     }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission here
-    console.log('Form submitted:', formData)
-    alert('Thank you for your message. We will contact you shortly.')
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      service: '',
-      message: ''
-    })
+    setIsSubmitting(true)
+    setSubmitStatus('idle')
+
+    try {
+      // Send email using EmailJS
+      const response = await emailjs.send(
+        'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
+        'template_yx6wudn', // Replace with your EmailJS template ID
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          phone: formData.phone,
+          service: formData.service,
+          message: formData.message,
+          to_email: 'saintjosephmetromt@gmail.com' // Your company email
+        }
+      )
+
+      if (response.status === 200) {
+        setSubmitStatus('success')
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          service: '',
+          message: ''
+        })
+        
+        // Reset status after 5 seconds
+        setTimeout(() => {
+          setSubmitStatus('idle')
+        }, 5000)
+      }
+    } catch (error) {
+      console.error('Failed to send message:', error)
+      setSubmitStatus('error')
+      
+      // Reset status after 5 seconds
+      setTimeout(() => {
+        setSubmitStatus('idle')
+      }, 5000)
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -53,13 +93,26 @@ export default function Contact() {
       {/* Contact Content */}
       <section className="py-20">
         <div className="container mx-auto px-6">
+          {/* Status Messages */}
+          {submitStatus === 'success' && (
+            <div className="mb-8 p-4 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-lg">
+              Thank you for your message! We&apos;ll contact you shortly.
+            </div>
+          )}
+          
+          {submitStatus === 'error' && (
+            <div className="mb-8 p-4 bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 rounded-lg">
+              Sorry, there was an error sending your message. Please try again or contact us directly at info@sjmtransports.com.
+            </div>
+          )}
+
           <div className="grid md:grid-cols-2 gap-12">
             {/* Contact Form */}
             <div>
               <h2 className="text-3xl font-bold text-teal-800 dark:text-teal-400 mb-6">Send Us a Message</h2>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-gray-700 dark:text-gray-300 mb-2">Full Name</label>
+                  <label htmlFor="name" className="block text-gray-700 dark:text-gray-300 mb-2">Full Name *</label>
                   <input
                     type="text"
                     id="name"
@@ -69,12 +122,13 @@ export default function Contact() {
                     required
                     className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
                     placeholder="Your name"
+                    disabled={isSubmitting}
                   />
                 </div>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="email" className="block text-gray-700 dark:text-gray-300 mb-2">Email Address</label>
+                    <label htmlFor="email" className="block text-gray-700 dark:text-gray-300 mb-2">Email Address *</label>
                     <input
                       type="email"
                       id="email"
@@ -84,6 +138,7 @@ export default function Contact() {
                       required
                       className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
                       placeholder="Your email"
+                      disabled={isSubmitting}
                     />
                   </div>
                   
@@ -97,6 +152,7 @@ export default function Contact() {
                       onChange={handleChange}
                       className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
                       placeholder="Your phone number"
+                      disabled={isSubmitting}
                     />
                   </div>
                 </div>
@@ -109,6 +165,7 @@ export default function Contact() {
                     value={formData.service}
                     onChange={handleChange}
                     className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
+                    disabled={isSubmitting}
                   >
                     <option value="">Select a service</option>
                     <option value="medical">Medical Appointments</option>
@@ -120,7 +177,7 @@ export default function Contact() {
                 </div>
                 
                 <div>
-                  <label htmlFor="message" className="block text-gray-700 dark:text-gray-300 mb-2">Message</label>
+                  <label htmlFor="message" className="block text-gray-700 dark:text-gray-300 mb-2">Message *</label>
                   <textarea
                     id="message"
                     name="message"
@@ -130,14 +187,26 @@ export default function Contact() {
                     required
                     className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
                     placeholder="How can we help you?"
+                    disabled={isSubmitting}
                   ></textarea>
                 </div>
                 
                 <button
                   type="submit"
-                  className="bg-teal-600 hover:bg-teal-700 text-white px-8 py-3 rounded-lg text-lg font-semibold transition-colors"
+                  disabled={isSubmitting}
+                  className="bg-teal-600 hover:bg-teal-700 disabled:bg-teal-400 text-white px-8 py-3 rounded-lg text-lg font-semibold transition-colors flex items-center justify-center"
                 >
-                  Send Message
+                  {isSubmitting ? (
+                    <>
+                      <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                      </svg>
+                      Sending...
+                    </>
+                  ) : (
+                    'Send Message'
+                  )}
                 </button>
               </form>
             </div>
@@ -167,7 +236,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-2">Email</h3>
-                    <p className="text-gray-600 dark:text-gray-400">info@sjmtransports.com</p>
+                    <p className="text-gray-600 dark:text-gray-400">saintjosephmetromt@gmail.com</p>
                     <p className="text-teal-600 dark:text-teal-400 font-medium">We respond within 24 hours</p>
                   </div>
                 </div>
