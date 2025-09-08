@@ -2,7 +2,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
+import { ThemeProvider } from 'next-themes'
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,6 +19,7 @@ export const metadata: Metadata = {
   description: "Safe, reliable transportation services for seniors and individuals throughout the Maryland Metropolitan Area",
 };
 
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -29,10 +30,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
         </ThemeProvider>
       </body>
     </html>
-  );
+  )
 }

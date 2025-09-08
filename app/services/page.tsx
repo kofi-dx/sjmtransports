@@ -1,4 +1,4 @@
-// app/services/page.tsx (updated with dark mode)
+// app/services/page.tsx
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import Image from 'next/image'
@@ -51,14 +51,14 @@ const services = [
 
 export default function Services() {
   return (
-    <main className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <main className="min-h-screen bg-gray-50">
       <Header />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-gradient-to-r from-teal-50 to-blue-50 dark:from-gray-800 dark:to-gray-900">
+      <section className="pt-32 pb-20 bg-gradient-to-r from-teal-50 to-blue-50">
         <div className="container mx-auto px-6 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-teal-800 dark:text-teal-400 mb-6">Our Services</h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          <h1 className="text-4xl md:text-5xl font-bold text-teal-800 mb-6">Our Services</h1>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Providing exceptional non-emergency transportation solutions tailored to your specific needs
           </p>
         </div>
@@ -69,7 +69,7 @@ export default function Services() {
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service) => (
-              <div key={service.id} className="bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow overflow-hidden group">
+              <div key={service.id} className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow overflow-hidden group">
                 <div className="relative h-48 overflow-hidden">
                   <Image
                     src={service.image}
@@ -80,13 +80,13 @@ export default function Services() {
                   <div className="absolute inset-0 bg-teal-900 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-3">{service.title}</h3>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4">{service.description}</p>
+                  <h3 className="text-xl font-semibold text-gray-800 mb-3">{service.title}</h3>
+                  <p className="text-gray-600 mb-4">{service.description}</p>
                   
                   <ul className="mb-6 space-y-2">
                     {service.features.map((feature, index) => (
-                      <li key={index} className="flex items-center text-gray-600 dark:text-gray-400">
-                        <svg className="w-4 h-4 text-teal-600 dark:text-teal-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <li key={index} className="flex items-center text-gray-600">
+                        <svg className="w-4 h-4 text-teal-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                         </svg>
                         {feature}
@@ -96,7 +96,7 @@ export default function Services() {
                   
                   <Link 
                     href={`/contact?service=${service.id}`}
-                    className="inline-flex items-center text-teal-600 dark:text-teal-400 font-semibold hover:text-teal-700 dark:hover:text-teal-300 transition-colors"
+                    className="inline-flex items-center text-teal-600 font-semibold hover:text-teal-700 transition-colors"
                   >
                     Schedule this service
                     <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -111,7 +111,7 @@ export default function Services() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-teal-700 dark:bg-teal-800">
+      <section className="py-20 bg-teal-700">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-4xl font-bold text-white mb-6">Need Special Transportation?</h2>
           <p className="text-xl text-teal-100 mb-8 max-w-3xl mx-auto">

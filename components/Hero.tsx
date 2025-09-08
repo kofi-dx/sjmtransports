@@ -6,7 +6,7 @@ export default function Hero() {
     <section className="relative h-screen flex items-center justify-center mt-16">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-teal-900 opacity-60 dark:opacity-70"></div>
+        <div className="absolute inset-0 bg-teal-900 opacity-60"></div>
         <Image
           src="/four.jpg"
           alt="Comfortable transportation for seniors"

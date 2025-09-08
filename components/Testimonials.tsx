@@ -22,16 +22,16 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="py-20 bg-teal-50 dark:bg-gray-800">
+    <section className="py-20 bg-teal-50">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-800 dark:text-white mb-4">What Our Clients Say</h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300">Don&apos;t just take our word for it - hear from our satisfied customers</p>
+          <h2 className="text-4xl font-bold text-gray-800 mb-4">What Our Clients Say</h2>
+          <p className="text-xl text-gray-600">Don&apos;t just take our word for it - hear from our satisfied customers</p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-lg">
+            <div key={index} className="bg-white p-8 rounded-xl shadow-lg">
               <div className="flex mb-4">
                 {[...Array(5)].map((_, i) => (
                   <svg key={i} className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
@@ -39,10 +39,10 @@ export default function Testimonials() {
                   </svg>
                 ))}
               </div>
-              <p className="text-gray-600 dark:text-gray-300 mb-6 italic">&quot;{testimonial.content}&quot;</p>
+              <p className="text-gray-600 mb-6 italic">&quot;{testimonial.content}&quot;</p>
               <div>
-                <p className="font-semibold text-gray-800 dark:text-white">{testimonial.name}</p>
-                <p className="text-teal-600 dark:text-teal-400 text-sm">{testimonial.role}</p>
+                <p className="font-semibold text-gray-800">{testimonial.name}</p>
+                <p className="text-teal-600 text-sm">{testimonial.role}</p>
               </div>
             </div>
           ))}
