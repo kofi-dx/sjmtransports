@@ -15,7 +15,7 @@ const services = [
   {
     title: "Hospital Transfers",
     description: "Comfortable and safe transfers between medical facilities and homes.",
-    image: "/hero-bg.jpg"
+    image: "/tt.jpg"
   },
   {
     title: "24/7 Availability",

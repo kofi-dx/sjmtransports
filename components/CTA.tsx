@@ -1,4 +1,6 @@
 // components/CTA.tsx
+import Link from 'next/link'
+
 export default function CTA() {
   return (
     <section className="py-20 bg-teal-700 dark:bg-teal-900">
@@ -11,12 +13,16 @@ export default function CTA() {
           Contact us today to schedule your ride.
         </p>
         <div className="flex flex-col sm:flex-row justify-center gap-4">
-          <button className="bg-white dark:bg-gray-100 text-teal-700 dark:text-teal-900 px-8 py-3 rounded-lg text-lg font-semibold hover:bg-gray-100 dark:hover:bg-gray-300 transition-colors">
-            Get Started
-          </button>
-          <button className="border-2 border-white text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-white hover:text-teal-700 dark:hover:text-teal-900 transition-colors">
-            Learn More
-          </button>
+          <Link href="/contact">
+            <button className="bg-white dark:bg-gray-100 text-teal-700 dark:text-teal-900 px-8 py-3 rounded-lg text-lg font-semibold hover:bg-gray-100 dark:hover:bg-gray-300 transition-colors">
+              Get Started
+            </button>
+          </Link>
+          <Link href="/about">
+            <button className="border-2 border-white text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-white hover:text-teal-700 dark:hover:text-teal-900 transition-colors">
+              Learn More
+            </button>
+          </Link>
         </div>
       </div>
     </section>

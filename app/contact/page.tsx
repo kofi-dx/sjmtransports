@@ -36,7 +36,7 @@ export default function Contact() {
     try {
       // Send email using EmailJS
       const response = await emailjs.send(
-        'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
+        'service_zm1oqbl', // Replace with your EmailJS service ID
         'template_yx6wudn', // Replace with your EmailJS template ID
         {
           from_name: formData.name,
