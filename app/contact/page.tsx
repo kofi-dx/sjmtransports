@@ -6,8 +6,7 @@ import Header from '@/components/Header'
 import { useState } from 'react'
 import emailjs from '@emailjs/browser'
 
-// Initialize EmailJS with your public key (get this from your EmailJS account)
-emailjs.init("tojMcIS2xxCyaJ8zB") // Replace with your actual public key
+emailjs.init("tojMcIS2xxCyaJ8zB") 
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -34,17 +33,16 @@ export default function Contact() {
     setSubmitStatus('idle')
 
     try {
-      // Send email using EmailJS
       const response = await emailjs.send(
-        'service_zm1oqbl', // Replace with your EmailJS service ID
-        'template_yx6wudn', // Replace with your EmailJS template ID
+        'service_zm1oqbl', 
+        'template_yx6wudn', 
         {
           from_name: formData.name,
           from_email: formData.email,
           phone: formData.phone,
           service: formData.service,
           message: formData.message,
-          to_email: 'saintjosephmetromt@gmail.com' // Your company email
+          to_email: 'saintjosephmetromt@gmail.com'
         }
       )
 
@@ -224,7 +222,7 @@ export default function Contact() {
                   <div>
                     <h3 className="text-xl font-semibold text-gray-800 mb-2">Phone</h3>
                     <p className="text-gray-600">+1 (240) 877-6048</p>
-                    <p className="text-teal-600 font-medium">Available 24/极速7</p>
+                    <p className="text-teal-600 font-medium">Available 24/7</p>
                   </div>
                 </div>
                 
