@@ -1,5 +1,6 @@
 // components/Hero.tsx
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function Hero() {
   return (
@@ -26,7 +27,7 @@ export default function Hero() {
         </p>
         <div className="flex flex-col sm:flex-row justify-center gap-4">
           <button className="bg-teal-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-teal-700 transition-colors">
-            Send Us a Message
+            <Link href="/contact" >Send Us a Message</Link>
           </button>
         </div>
       </div>
