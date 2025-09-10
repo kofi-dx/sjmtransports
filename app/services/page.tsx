@@ -9,14 +9,14 @@ const services = [
     id: "senior",
     title: "Senior Transportation",
     description: "Specialized transportation services for seniors with trained drivers and accessible vehicles. We ensure comfortable and safe rides for all our elderly passengers.",
-    image: "https://images.unsplash.com/photo-1476234251651-f353703a034d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80",
+    image: "/st.jpg",
     features: ["Door-to-door service", "Trained assistance", "Comfortable vehicles", "Flexible scheduling"]
   },
   {
     id: "medical",
     title: "Medical Appointments",
     description: "Reliable transportation to and from medical facilities, ensuring you never miss important appointments. We understand the importance of punctuality for healthcare visits.",
-    image: "https://images.unsplash.com/photo-1586773860418-d37222d8fce3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2073&q=80",
+    image: "/mdd.jpg",
     features: ["On-time guarantee", "Wait time included", "Direct facility access", "Document assistance"]
   },
   {
@@ -37,14 +37,14 @@ const services = [
     id: "wheelchair",
     title: "Wheelchair Accessible Transportation",
     description: "Fully accessible vehicles equipped to accommodate wheelchairs and mobility devices. We ensure safe and comfortable transportation for passengers with mobility challenges.",
-    image: "https://images.unsplash.com/photo-1576086213369-97a306d36557?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2080&q=80",
+    image: "/one.jpg",
     features: ["ADA compliant vehicles", "Trained assistance", "Secure fastening systems", "Ramp or lift access"]
   },
   {
     id: "holiday",
     title: "Holiday Service Transportation",
     description: "Special holiday transportation services to help seniors visit family and friends during festive seasons. Spread joy without transportation worries.",
-    image: "https://images.unsplash.com/photo-1543083115-638c32cd3d58?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2032&q=80",
+    image: "/two.jpg",
     features: ["Holiday scheduling", "Family visit assistance", "Gift transportation", "Extended service hours"]
   }
 ]

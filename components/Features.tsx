@@ -16,7 +16,7 @@ export default function Features() {
           <div>
             <div className="relative h-96 rounded-xl overflow-hidden">
               <Image
-                src="/four.jpg"
+                src="/why.jpg"
                 alt="Professional driver assisting senior"
                 fill
                 className="object-cover"
