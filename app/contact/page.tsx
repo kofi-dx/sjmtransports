@@ -42,7 +42,8 @@ export default function Contact() {
           phone: formData.phone,
           service: formData.service,
           message: formData.message,
-          to_email: 'saintjosephmetromt@gmail.com'
+          to_email: 'saintjosephmetromt@gmail.com',
+    time: new Date().toLocaleString()
         }
       )
 
